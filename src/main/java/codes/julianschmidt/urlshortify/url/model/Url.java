@@ -1,9 +1,20 @@
 package codes.julianschmidt.urlshortify.url.model;
 
+import java.util.Objects;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Url {
 
+    @Id
+    @GeneratedValue
     private long id;
+
     private String longUrl;
+
     private String shortUrl;
 
     public Url() {
@@ -36,5 +47,29 @@ public class Url {
 
     public void setShortUrl(String shortUrl) {
         this.shortUrl = shortUrl;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Url url = (Url) o;
+        return id == url.id
+                && Objects.equals(longUrl, url.longUrl)
+                && Objects.equals(shortUrl, url.shortUrl);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, longUrl, shortUrl);
+    }
+
+    @Override
+    public String toString() {
+        return "Url{" + "id=" + id + ", longUrl='" + longUrl + '\'' + ", shortUrl='" + shortUrl + '\'' + '}';
     }
 }
