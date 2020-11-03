@@ -15,25 +15,22 @@ public class UrlController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UrlController.class);
 
-    private final UrlRepository repository;
+    private final UrlService service;
 
-    UrlController(UrlRepository repository) {
-        this.repository = repository;
+    UrlController(UrlService service) {
+        this.service = service;
     }
 
     @PostMapping("/url")
     public Url shortenUrl(ShortenUrlDto original) {
-        String originalUrl = original.getOriginalUrl();
-        LOGGER.debug("Shortening URL '{}' ...", originalUrl);
-        String testShortUrl = "2348976dfb";
-        return repository.save(new Url(originalUrl, testShortUrl));
+        LOGGER.debug("Shortening URL '{}' ...", original.getOriginalUrl());
+        return service.shortenUrl(original);
     }
 
     @GetMapping("/url")
     public Url retrieve(RetrieveUrlDto shortened) {
-        String shortUrl = shortened.getShortUrl();
-        LOGGER.debug("Retrieving URL for short URL '{}' ...", shortUrl);
-        return repository.findByShortUrl(shortUrl).orElse(null);
+        LOGGER.debug("Retrieving URL for short URL '{}' ...", shortened.getShortUrl());
+        return service.retrieve(shortened);
     }
 
 }
