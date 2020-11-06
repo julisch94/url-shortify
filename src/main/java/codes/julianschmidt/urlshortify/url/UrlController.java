@@ -1,5 +1,7 @@
 package codes.julianschmidt.urlshortify.url;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -25,13 +27,13 @@ public class UrlController {
     }
 
     @PostMapping("/url")
-    public Url shorten(ShortenUrlDto original) {
+    public Url shorten(@Valid ShortenUrlDto original) {
         LOGGER.debug("Shortening URL '{}' ...", original.getUrl());
         return service.shorten(original);
     }
 
     @GetMapping("/url")
-    public Url retrieve(RetrieveUrlDto shortened) {
+    public Url retrieve(@Valid RetrieveUrlDto shortened) {
         LOGGER.debug("Retrieving URL for token '{}' ...", shortened.getToken());
         return service.retrieve(shortened);
     }

@@ -1,9 +1,14 @@
 package codes.julianschmidt.urlshortify.url.dto;
 
+import javax.validation.constraints.NotNull;
+
 import codes.julianschmidt.urlshortify.url.model.Url;
+import codes.julianschmidt.urlshortify.url.validator.ValidUrl;
 
 public class ShortenUrlDto {
 
+    @NotNull(message = "URL must not be null")
+    @ValidUrl
     private String url;
 
     public String getUrl() {
