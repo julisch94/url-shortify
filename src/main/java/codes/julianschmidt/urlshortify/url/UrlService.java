@@ -35,7 +35,7 @@ public class UrlService {
 
     public static class FailedToShortenUrlException extends RuntimeException {
         public FailedToShortenUrlException(ShortenUrlDto original) {
-            super(String.format("Failed to shorten the URL: '%s'", original.getOriginalUrl()));
+            super(String.format("Failed to shorten the URL: '%s'", original.getUrl()));
         }
     }
 

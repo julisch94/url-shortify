@@ -26,7 +26,7 @@ public class UrlController {
 
     @PostMapping("/url")
     public Url shorten(ShortenUrlDto original) {
-        LOGGER.debug("Shortening URL '{}' ...", original.getOriginalUrl());
+        LOGGER.debug("Shortening URL '{}' ...", original.getUrl());
         return service.shorten(original);
     }
 

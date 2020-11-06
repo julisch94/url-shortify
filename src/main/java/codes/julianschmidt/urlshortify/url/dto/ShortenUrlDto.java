@@ -4,18 +4,18 @@ import codes.julianschmidt.urlshortify.url.model.Url;
 
 public class ShortenUrlDto {
 
-    private String originalUrl;
+    private String url;
 
-    public String getOriginalUrl() {
-        return originalUrl;
+    public String getUrl() {
+        return url;
     }
 
-    public void setOriginalUrl(String originalUrl) {
-        this.originalUrl = originalUrl;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Url toUrl() {
-        return new Url(originalUrl, null);
+        return new Url(url, null);
     }
 
 }
