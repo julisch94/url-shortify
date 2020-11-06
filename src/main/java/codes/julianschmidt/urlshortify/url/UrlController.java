@@ -25,14 +25,14 @@ public class UrlController {
     }
 
     @PostMapping("/url")
-    public Url shortenUrl(ShortenUrlDto original) {
+    public Url shorten(ShortenUrlDto original) {
         LOGGER.debug("Shortening URL '{}' ...", original.getOriginalUrl());
-        return service.shortenUrl(original);
+        return service.shorten(original);
     }
 
     @GetMapping("/url")
     public Url retrieve(RetrieveUrlDto shortened) {
-        LOGGER.debug("Retrieving URL for short URL '{}' ...", shortened.getShortUrl());
+        LOGGER.debug("Retrieving URL for token '{}' ...", shortened.getToken());
         return service.retrieve(shortened);
     }
 

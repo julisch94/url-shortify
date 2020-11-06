@@ -5,8 +5,8 @@ import codes.julianschmidt.urlshortify.url.model.Url;
 public class FixedShortener implements UrlShortener {
 
     @Override
-    public Url decorateShortenedUrl(Url original) {
-        original.setShortUrl("2348976dfb");
+    public Url decorateToken(Url original) {
+        original.setToken("2348976dfb");
         return original;
     }
 

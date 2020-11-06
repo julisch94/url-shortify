@@ -19,10 +19,10 @@ public class RandomShortener implements UrlShortener {
     }
 
     @Override
-    public Url decorateShortenedUrl(Url original) {
-        String shortUrl = getUniqueRandomString();
-        LOGGER.debug("unique random string was generated: {}", shortUrl);
-        original.setShortUrl(shortUrl);
+    public Url decorateToken(Url original) {
+        String token = getUniqueRandomString();
+        LOGGER.debug("unique random string was generated: {}", token);
+        original.setToken(token);
         return original;
     }
 
@@ -47,7 +47,7 @@ public class RandomShortener implements UrlShortener {
     }
 
     private boolean isUnique(String candidate) {
-        return repository.findByShortUrl(candidate).isEmpty();
+        return repository.findByToken(candidate).isEmpty();
     }
 
 }

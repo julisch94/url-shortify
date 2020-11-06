@@ -9,10 +9,10 @@ import codes.julianschmidt.urlshortify.url.model.Url;
 public interface UrlRepository extends JpaRepository<Url, Long> {
 
     /**
-     * Finds a URL object by using the short URL as a search criteria.
+     * Finds a URL object by using the token as a search criteria.
      *
-     * @return a URL object with matches exactly the given short URL
+     * @return a URL object with matches exactly the given token
      */
-    Optional<Url> findByShortUrl(String shortUrl);
+    Optional<Url> findByToken(String token);
 
 }

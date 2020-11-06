@@ -2,13 +2,13 @@ package codes.julianschmidt.urlshortify.url.dto;
 
 public class RetrieveUrlDto {
 
-    private String shortUrl;
+    private String token;
 
-    public String getShortUrl() {
-        return shortUrl;
+    public String getToken() {
+        return token;
     }
 
-    public void setShortUrl(String shortUrl) {
-        this.shortUrl = shortUrl;
+    public void setToken(String token) {
+        this.token = token;
     }
 }

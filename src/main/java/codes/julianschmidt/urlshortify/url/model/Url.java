@@ -15,14 +15,14 @@ public class Url {
 
     private String longUrl;
 
-    private String shortUrl;
+    private String token;
 
     public Url() {
     }
 
-    public Url(String longUrl, String shortUrl) {
+    public Url(String longUrl, String token) {
         this.longUrl = longUrl;
-        this.shortUrl = shortUrl;
+        this.token = token;
     }
 
     public long getId() {
@@ -41,12 +41,12 @@ public class Url {
         this.longUrl = longUrl;
     }
 
-    public String getShortUrl() {
-        return shortUrl;
+    public String getToken() {
+        return token;
     }
 
-    public void setShortUrl(String shortUrl) {
-        this.shortUrl = shortUrl;
+    public void setToken(String shortUrl) {
+        this.token = shortUrl;
     }
 
     @Override
@@ -60,16 +60,16 @@ public class Url {
         Url url = (Url) o;
         return id == url.id
                 && Objects.equals(longUrl, url.longUrl)
-                && Objects.equals(shortUrl, url.shortUrl);
+                && Objects.equals(token, url.token);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, longUrl, shortUrl);
+        return Objects.hash(id, longUrl, token);
     }
 
     @Override
     public String toString() {
-        return "Url{" + "id=" + id + ", longUrl='" + longUrl + '\'' + ", shortUrl='" + shortUrl + '\'' + '}';
+        return "Url{" + "id=" + id + ", longUrl='" + longUrl + '\'' + ", token='" + token + '\'' + '}';
     }
 }
