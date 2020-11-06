@@ -25,11 +25,23 @@ public class UrlService {
                 .map(ShortenUrlDto::toUrl)
                 .map(shortener::decorateShortenedUrl)
                 .map(repository::save)
-                .orElse(null);
+                .orElseThrow(() -> new FailedToShortenUrlException(original));
     }
 
     public Url retrieve(RetrieveUrlDto shortened) {
-        return repository.findByShortUrl(shortened.getShortUrl()).orElse(null);
+        return repository.findByShortUrl(shortened.getShortUrl())
+                .orElseThrow(() -> new FailedToRetrieveUrlException(shortened));
     }
 
+    public static class FailedToShortenUrlException extends RuntimeException {
+        public FailedToShortenUrlException(ShortenUrlDto original) {
+            super(String.format("Failed to shorten the URL: '%s'", original.getOriginalUrl()));
+        }
+    }
+
+    public static class FailedToRetrieveUrlException extends RuntimeException {
+        public FailedToRetrieveUrlException(RetrieveUrlDto shortened) {
+            super(String.format("Failed to retrieve the URL: '%s'", shortened.getShortUrl()));
+        }
+    }
 }
