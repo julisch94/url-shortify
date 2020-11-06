@@ -1,10 +1,7 @@
 package codes.julianschmidt.urlshortify.url.shortener;
 
-import org.springframework.stereotype.Component;
-
 import codes.julianschmidt.urlshortify.url.model.Url;
 
-@Component
 public class FixedShortener implements UrlShortener {
 
     @Override
