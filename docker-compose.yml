@@ -1,0 +1,23 @@
+version: "3"
+services:
+  app:
+    container_name: url-shortify-backend
+    image: url-shortify-backend
+    build: ./
+    ports:
+    - "8080:8080"
+    depends_on:
+      - db_postgres
+  db_postgres:
+    container_name: url-shortify-postgres
+    image: postgres:12.0
+    ports:
+     - "5432:5432"
+    environment:
+     POSTGRES_DB: url
+     POSTGRES_USER: jules
+     POSTGRES_PASSWORD: julespw
+    volumes:
+     - postgres:/var/lib/postgresql/data
+volumes:
+  postgres:
