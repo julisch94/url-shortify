@@ -22,7 +22,7 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools:2.3.4.RELEASE'
 
 	//	Database drivers
-	implementation('com.oracle.database.jdbc:ojdbc10:19.8.0.0')
+	implementation('org.postgresql:postgresql:42.2.18')
 
 	//	Spring Boot
 	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
