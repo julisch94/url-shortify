@@ -38,6 +38,9 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation('org.junit.jupiter:junit-jupiter-api:5.7.0')
+
+	// Integration Test Database
+	testImplementation('com.h2database:h2:1.4.200')
 }
 
 test {
